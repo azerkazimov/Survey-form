@@ -1,0 +1,76 @@
+#main {
+  @extend .py-3;
+  @extend .my-3;
+  width: 100%;
+  height: auto;
+  background: map-get($colors, light);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: map-get($colors, primary);
+  }
+  .survey {
+    z-index: 3;
+    width: 70%;
+    .survey-header {
+      text-align: center;
+    }
+    .survey-content {
+      border: 1px solid map-get($colors, primary);
+      border-radius: 5px;
+      box-shadow: 0 0 5px 0 rgba($color: #000000, $alpha: 0.5);
+      .survey-content-header {
+        .survey-wizard {
+          width: 100%;
+          progress {
+            @extend .progress-custom;
+          }
+        }
+      }
+      .survey-content-body {
+        // input:invalid {
+        //   border: 2px dashed red;
+        // }
+        // input:invalid:required {
+        //   background-image: linear-gradient(to right, rgb(219, 166, 166), rgb(212, 240, 212));
+        // }
+        .invalid-input {
+          border: 2px dashed red;
+        }
+
+        .survey-body-footer {
+          @extend .flex-container;
+          @extend .flex-column;
+          @extend .flex-justify-center;
+          @extend .flex-align-center;
+          @extend .py-3;
+          font-weight: 700;
+          a {
+            color: map-get($colors, info);
+            transition: all 0.2s ease-in;
+            &:hover {
+              color: map-get($colors, primary);
+            }
+          }
+        }
+      }
+      .survey-content-footer {
+        .btn {
+          @extend .m-1;
+        }
+      }
+    }
+  }
+}
+
+#servise {
+  height: 100vh;
+}

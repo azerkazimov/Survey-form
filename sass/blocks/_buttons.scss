@@ -1,0 +1,95 @@
+.btn {
+  @extend .px-4;
+  @extend .py-2;
+  @extend .mx-1;
+  cursor: pointer;
+  display: inline-block;
+  font-size: inherit !important;
+}
+
+@each $color, $value in $colors {
+  .btn-bg-#{$color} {
+    background: $value !important;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background: map-get($colors, primary) !important;
+    }
+  }
+
+  .btn-text-#{$color} {
+    color: $value !important;
+    transition: all 0.3s ease-in-out;
+  }
+}
+@each $color, $value in $colors {
+  .btn-outline-#{$color} {
+    border: 2px solid $value;
+    border-radius: 5px;
+  }
+}
+// switch button
+.on-off-toggle {
+  @extend .my-3;
+  $slider-width: 80px;
+  $slider-height: 24px;
+
+  width: $slider-width;
+  height: $slider-height;
+  position: relative;
+  display: inline-block;
+
+  &__slider {
+    width: $slider-width;
+    height: $slider-height;
+    display: block;
+    border-radius: $slider-height / 2;
+    background-color: #d8d8d8;
+    transition: background-color 0.4s;
+
+    &::before {
+      content: "";
+      display: block;
+      background-color: #fff;
+      box-shadow: 0 0 0 1px #949494;
+      bottom: 3px;
+      height: $slider-height - 6px;
+      left: 3px;
+      position: absolute;
+      transition: 0.4s;
+      width: $slider-height - 6px;
+      z-index: 5;
+      border-radius: 50%;
+    }
+
+    &::after {
+      display: block;
+      line-height: $slider-height;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: bold;
+      content: "no";
+      color: #484848;
+      padding-left: $slider-height + 24px;
+      transition: all 0.4s;
+    }
+  }
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+  }
+
+  &__input:checked + &__slider {
+    background-color: #53d76a;
+
+    &::before {
+      transform: translateX($slider-width - $slider-height);
+    }
+
+    &::after {
+      content: "yes";
+      color: #ffffff;
+      padding-left: 10px;
+    }
+  }
+}

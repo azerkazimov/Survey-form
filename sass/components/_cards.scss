@@ -1,0 +1,32 @@
+.card {
+  @extend .flex-container;
+  @extend .flex-column;
+  @extend .p-4;
+  @extend .flex-justify-space-between;
+  @extend .flex-align-center;
+  @extend .bg-gray;
+
+  .card-header {
+    h1 {
+      @extend .p-4;
+      @extend .font-weight-bold;
+    }
+  }
+  .card-body {
+    p {
+      @extend .p-4;
+      @extend .font-weight-normal;
+    }
+  }
+  .card-action {
+    a {
+      @extend .btn;
+      @extend .btn-outline-black;
+      &:hover {
+        @extend .btn-bg-primary;
+        border: 2px solid transparent;
+        color: map-get($colors, light);
+      }
+    }
+  }
+}

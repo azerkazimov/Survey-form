@@ -1,0 +1,12 @@
+.user {
+  @extend .m-3;
+  @extend .p-3;
+  border-radius: 20px;
+  box-shadow: -2px -7px 34px -11px rgba(0, 0, 0, 0.75);
+  h3 {
+    color: map-get($colors, secondary);
+  }
+  p {
+    @extend .py-1;
+  }
+}

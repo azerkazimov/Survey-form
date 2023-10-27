@@ -1,0 +1,71 @@
+$grid-columns: 12;
+$widths: 0%, 25%, 50%, 75%, 100%;
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
+$spacer: 5px;
+$spacers: (
+  0: (
+    $spacer * 0,
+  ),
+  1: (
+    $spacer * 1,
+  ),
+  2: (
+    $spacer * 2,
+  ),
+  3: (
+    $spacer * 3,
+  ),
+  4: (
+    $spacer * 4,
+  ),
+  5: (
+    $spacer * 5,
+  ),
+);
+
+$colors: (
+  "primary": #1ab9a7,
+  "secondary": #6c757d,
+  "success": #5cb85c,
+  "info": #5bc0de,
+  "warning": #f0ad4e,
+  "danger": #d9534f,
+  "light": #f7f7f7,
+  "dark": #292b2c,
+  "white": #fff,
+  "black": #000,
+  "gray": #f3f3f3,
+);
+
+$font-sizes: ();
+
+@for $i from 10 through 100 {
+  $font-sizes: map-merge($font-sizes, (#{$i}: #{$i}px));
+}
+
+@each $key, $value in $font-sizes {
+  .font-size-#{$key} {
+    font-size: $value;
+  }
+}
+$font-sizes: ();
+
+@for $i from 10 through 100 {
+  $font-sizes: map-merge($font-sizes, (#{$i}: #{$i}px));
+}
+
+$font-weights: (
+  lighter: lighter,
+  light: 300,
+  normal: normal,
+  bold: bold,
+  bolder: bolder,
+);
+
+$flex-values: (start, end, center, space-between, space-around);

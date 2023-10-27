@@ -1,0 +1,19 @@
+// Generate all flex classes
+
+@each $value in $flex-values {
+  .flex-justify-#{$value} {
+    justify-content: $value !important;
+  }
+
+  .flex-align-#{$value} {
+    align-items: $value !important;
+  }
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
